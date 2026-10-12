@@ -17,6 +17,9 @@ jobs:
     name: Analyze code
     runs-on: ubuntu-latest
 
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,5 +28,3 @@ jobs:
 
       - name: SonarQube Cloud Scan
         uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
